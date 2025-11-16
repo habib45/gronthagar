@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, FlatList, StyleSheet, Pressable } from 'react-native';
-import BookItem from '../components/BookItem';
-import { useRouter } from 'expo-router';
+import React, { useEffect } from 'react';
+import { View, FlatList, StyleSheet, Pressable, Button } from 'react-native';
+import BookItem from '../../components/BookItem';
+import { useRouter, useNavigation } from 'expo-router';
+import { DrawerActions } from '@react-navigation/native';
 
 const BOOKS = [
   { id: '1', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', imageUrl: 'https://picsum.photos/seed/gatsby/200/300' },
@@ -13,6 +14,13 @@ const BOOKS = [
 
 const HomeScreen = () => {
   const router = useRouter();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <Button onPress={() => navigation.dispatch(DrawerActions.openDrawer())} title="Menu" />,
+    });
+  }, [navigation]);
 
   const renderItem = ({ item }: { item: typeof BOOKS[0] }) => (
     <Pressable onPress={() => router.push({ pathname: "/reader", params: { bookId: item.id, title: item.title } })}>
