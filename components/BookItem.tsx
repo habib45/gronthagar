@@ -9,17 +9,21 @@ interface BookItemProps {
   onPress?: () => void;
 }
 
-const BookItem = ({ title, author, imageUrl, onPress }: BookItemProps) => {
-  return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={{ uri: imageUrl }} style={styles.bookImage} />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.author}>{author}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+const BookItem = React.forwardRef<React.ElementRef<typeof TouchableOpacity>, BookItemProps>(
+  ({ title, author, imageUrl, onPress }, ref) => {
+    return (
+      <TouchableOpacity style={styles.container} onPress={onPress} ref={ref}>
+        <Image source={{ uri: imageUrl }} style={styles.bookImage} />
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.author}>{author}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+);
+
+BookItem.displayName = 'BookItem';
 
 const styles = StyleSheet.create({
   container: {
