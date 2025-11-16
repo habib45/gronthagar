@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Pressable } from 'react-native';
 import BookItem from '../components/BookItem';
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 
 const BOOKS = [
   { id: '1', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', imageUrl: 'https://picsum.photos/seed/gatsby/200/300' },
@@ -12,13 +12,16 @@ const BOOKS = [
 ];
 
 const HomeScreen = () => {
+  const router = useRouter();
+
   const renderItem = ({ item }: { item: typeof BOOKS[0] }) => (
-    <Link href={{ pathname: "/reader", params: { bookId: item.id, title: item.title } }} asChild>
-                      <BookItem
-                        title={item.title}
-                        author={item.author}
-                        imageUrl={item.imageUrl}
-                      />    </Link>
+    <Pressable onPress={() => router.push({ pathname: "/reader", params: { bookId: item.id, title: item.title } })}>
+      <BookItem
+        title={item.title}
+        author={item.author}
+        imageUrl={item.imageUrl}
+      />
+    </Pressable>
   );
 
   return (
