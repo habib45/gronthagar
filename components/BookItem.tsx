@@ -6,7 +6,7 @@ interface BookItemProps {
   title: string;
   author: string;
   imageUrl: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const BookItem = ({ title, author, imageUrl, onPress }: BookItemProps) => {

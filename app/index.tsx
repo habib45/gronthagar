@@ -14,12 +14,11 @@ const BOOKS = [
 const HomeScreen = () => {
   const renderItem = ({ item }: { item: typeof BOOKS[0] }) => (
     <Link href={{ pathname: "/reader", params: { bookId: item.id, title: item.title } }} asChild>
-              <BookItem
-                title={item.title}
-                author={item.author}
-                imageUrl={item.imageUrl}
-                onPress={() => {}}
-              />    </Link>
+                      <BookItem
+                        title={item.title}
+                        author={item.author}
+                        imageUrl={item.imageUrl}
+                      />    </Link>
   );
 
   return (
