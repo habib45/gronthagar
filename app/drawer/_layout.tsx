@@ -7,6 +7,7 @@ export default function DrawerLayout() {
       <Drawer.Screen name="settings" options={{ title: 'Settings' }} />
       <Drawer.Screen name="category" options={{ title: 'Category' }} />
       <Drawer.Screen name="writers" options={{ title: 'Writers' }} />
+      <Drawer.Screen name="upload" options={{ title: 'Upload Book' }} />
     </Drawer>
   );
 }

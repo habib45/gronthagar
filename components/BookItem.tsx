@@ -1,55 +1,51 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import { Image } from 'expo-image';
 
 interface BookItemProps {
   title: string;
   author: string;
   imageUrl: string;
-  onPress?: () => void;
 }
 
-const BookItem = React.forwardRef<React.ElementRef<typeof TouchableOpacity>, BookItemProps>(
-  ({ title, author, imageUrl, onPress }, ref) => {
-    return (
-      <TouchableOpacity style={styles.container} onPress={onPress} ref={ref}>
-        <Image source={{ uri: imageUrl }} style={styles.bookImage} />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.author}>{author}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-);
-
-BookItem.displayName = 'BookItem';
+const BookItem: React.FC<BookItemProps> = ({ title, author, imageUrl }) => {
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: imageUrl }} style={styles.bookImage} />
+      <View style={styles.textContainer}>
+        <Text style={styles.title} numberOfLines={1}>{title}</Text>
+        <Text style={styles.author} numberOfLines={1}>{author}</Text>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    flex: 1,
+    margin: 5,
     alignItems: 'center',
   },
   bookImage: {
-    width: 60,
-    height: 90,
-    marginRight: 15,
+    width: 150,
+    height: 220,
     borderRadius: 4,
     backgroundColor: '#eee', // Placeholder background
   },
   textContainer: {
     flex: 1,
+    alignItems: 'center',
+    marginTop: 5,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   author: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
+    textAlign: 'center',
   },
 });
 
