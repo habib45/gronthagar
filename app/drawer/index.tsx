@@ -5,6 +5,7 @@ import { useRouter, useNavigation } from 'expo-router';
 import { DrawerActions } from '@react-navigation/native';
 import { getBooks } from '../data/db';
 import { Book } from '../models/book';
+import toggleDrawerIcon from './assets/toggle-drawer-icon.png';
 
 const HomeScreen = () => {
   const router = useRouter();
@@ -12,9 +13,6 @@ const HomeScreen = () => {
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => <Button onPress={() => navigation.dispatch(DrawerActions.openDrawer())} title="Menu" />,
-    });
     getBooks().then(setBooks);
   }, [navigation]);
 

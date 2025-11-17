@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   },
   bookImage: {
     width: bookWidth - 20,
-    height: (bookWidth - 20) * 1.5,
-    borderRadius: 4,
+    height: (bookWidth - 20) * 1,
+    borderRadius: 5,
     backgroundColor: '#eee', // Placeholder background
   },
   textContainer: {
@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   author: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#666',
     textAlign: 'center',
   },

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, useColorScheme } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { getBook } from './data/db';
 import { Book, Chapter } from './models/book';
+import { ThemedText } from '@/components/themed-text';
+import { IconSymbol } from '@/components/ui/icon-symbol';
+import { Colors } from '@/constants/theme';
 
 const BookDetailsScreen = () => {
   const { bookId } = useLocalSearchParams<{ bookId: string }>();
   const [book, setBook] = useState<Book | null>(null);
   const [currentChapter, setCurrentChapter] = useState<Chapter | null>(null);
   const [chapterIndex, setChapterIndex] = useState(0);
+  const colorScheme = useColorScheme();
 
   useEffect(() => {
     if (bookId) {
@@ -46,20 +50,38 @@ const BookDetailsScreen = () => {
     );
   }
 
+  const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
+  const isPrevDisabled = chapterIndex === 0;
+  const isNextDisabled = !book || chapterIndex === book.chapters.length - 1;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{book.title}</Text>
       <Text style={styles.author}>{book.author}</Text>
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={goToPreviousChapter}
+          disabled={isPrevDisabled}
+          style={[styles.navButton, { opacity: isPrevDisabled ? 0.5 : 1 }]}
+        >
+          <IconSymbol name="chevron.left" size={20} color={theme.tint} />
+          <ThemedText style={{ color: theme.tint }}>Previous</ThemedText>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={goToNextChapter}
+          disabled={isNextDisabled}
+          style={[styles.navButton, { opacity: isNextDisabled ? 0.5 : 1 }]}
+        >
+          <ThemedText style={{ color: theme.tint }}>Next</ThemedText>
+          <IconSymbol name="chevron.right" size={20} color={theme.tint} />
+        </TouchableOpacity>
+      </View>
       {currentChapter && (
         <ScrollView style={styles.chapterContainer}>
           <Text style={styles.chapterTitle}>{currentChapter.title}</Text>
           <Text style={styles.chapterContent}>{currentChapter.content}</Text>
         </ScrollView>
       )}
-      <View style={styles.navigationContainer}>
-        <Button title="Previous" onPress={goToPreviousChapter} disabled={chapterIndex === 0} />
-        <Button title="Next" onPress={goToNextChapter} disabled={!book || chapterIndex === book.chapters.length - 1} />
-      </View>
     </View>
   );
 };
@@ -70,14 +92,14 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
   },
   author: {
-    fontSize: 18,
-    color: '#666',
+    fontSize: 16,
+    color: '#555',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -86,16 +108,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   chapterTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 15,
   },
   chapterContent: {
-    fontSize: 16,
+    fontSize: 18,
+    lineHeight: 28,
   },
   navigationContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  navButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
   },
 });
 
