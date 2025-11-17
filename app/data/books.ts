@@ -5,7 +5,7 @@ export const books: Book[] = [
     id: '1',
     title: 'The Adventures of Tom Sawyer',
     author: 'Mark Twain',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+1',
+    cover: 'https://picsum.photos/seed/1/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -21,7 +21,7 @@ export const books: Book[] = [
     id: '2',
     title: 'The Little Prince',
     author: 'Antoine de Saint-Exupéry',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+2',
+    cover: 'https://picsum.photos/seed/2/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -37,7 +37,7 @@ export const books: Book[] = [
     id: '3',
     title: 'The Alchemist',
     author: 'Paulo Coelho',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+3',
+    cover: 'https://picsum.photos/seed/3/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -53,7 +53,7 @@ export const books: Book[] = [
     id: '4',
     title: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+4',
+    cover: 'https://picsum.photos/seed/4/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -69,7 +69,7 @@ export const books: Book[] = [
     id: '5',
     title: 'The Hobbit',
     author: 'J.R.R. Tolkien',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+5',
+    cover: 'https://picsum.photos/seed/5/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -85,7 +85,7 @@ export const books: Book[] = [
     id: '6',
     title: 'The Chronicles of Narnia',
     author: 'C.S. Lewis',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+6',
+    cover: 'https://picsum.photos/seed/6/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -101,7 +101,7 @@ export const books: Book[] = [
     id: '7',
     title: 'The Hunger Games',
     author: 'Suzanne Collins',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+7',
+    cover: 'https://picsum.photos/seed/7/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -117,7 +117,7 @@ export const books: Book[] = [
     id: '8',
     title: 'Harry Potter and the Sorcerer\'s Stone',
     author: 'J.K. Rowling',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+8',
+    cover: 'https://picsum.photos/seed/8/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -133,7 +133,7 @@ export const books: Book[] = [
     id: '9',
     title: 'The Fault in Our Stars',
     author: 'John Green',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+9',
+    cover: 'https://picsum.photos/seed/9/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -149,7 +149,7 @@ export const books: Book[] = [
     id: '10',
     title: 'The Book Thief',
     author: 'Markus Zusak',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+10',
+    cover: 'https://picsum.photos/seed/10/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -165,7 +165,7 @@ export const books: Book[] = [
     id: '11',
     title: 'The Giver',
     author: 'Lois Lowry',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+11',
+    cover: 'https://picsum.photos/seed/11/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -181,7 +181,7 @@ export const books: Book[] = [
     id: '12',
     title: 'The Maze Runner',
     author: 'James Dashner',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+12',
+    cover: 'https://picsum.photos/seed/12/300/400',
     chapters: [
       {
         title: 'Chapter 1',
@@ -197,7 +197,7 @@ export const books: Book[] = [
     id: '13',
     title: 'Divergent',
     author: 'Veronica Roth',
-    cover: 'https://dummyimage.com/300x400/000/fff&text=Book+13',
+    cover: 'https://picsum.photos/seed/13/300/400',
     chapters: [
       {
         title: 'Chapter 1',
