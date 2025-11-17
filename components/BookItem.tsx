@@ -1,12 +1,14 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
-import { Image } from 'expo-image';
+import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
 
 interface BookItemProps {
   title: string;
   author: string;
   imageUrl: string;
 }
+
+const { width } = Dimensions.get('window');
+const bookWidth = (width - 40) / 2;
 
 const BookItem: React.FC<BookItemProps> = ({ title, author, imageUrl }) => {
   return (
@@ -22,13 +24,13 @@ const BookItem: React.FC<BookItemProps> = ({ title, author, imageUrl }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: bookWidth,
     margin: 5,
     alignItems: 'center',
   },
   bookImage: {
-    width: 150,
-    height: 220,
+    width: bookWidth - 20,
+    height: (bookWidth - 20) * 1.5,
     borderRadius: 4,
     backgroundColor: '#eee', // Placeholder background
   },
