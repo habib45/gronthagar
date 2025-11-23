@@ -8,7 +8,10 @@ interface BookItemProps {
 }
 
 const { width } = Dimensions.get('window');
-const bookWidth = (width - 40) / 2;
+let divSize = 2;
+
+ if(width >= 1024){ let divSize=4 };
+const bookWidth = (width - 90) / divSize;
 
 const BookItem: React.FC<BookItemProps> = ({ title, author, imageUrl }) => {
   return (
@@ -25,7 +28,7 @@ const BookItem: React.FC<BookItemProps> = ({ title, author, imageUrl }) => {
 const styles = StyleSheet.create({
   container: {
     width: bookWidth,
-    margin: 5,
+    margin: 8,
     alignItems: 'center',
   },
   bookImage: {

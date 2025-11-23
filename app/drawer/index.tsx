@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet, Pressable, Button } from 'react-native';
+import { View, FlatList, StyleSheet, Pressable, Platform } from 'react-native';
 import BookItem from '../../components/BookItem';
 import { useRouter, useNavigation } from 'expo-router';
-import { DrawerActions } from '@react-navigation/native';
 import { getBooks } from '../data/db';
 import { Book } from '../models/book';
-import toggleDrawerIcon from './assets/toggle-drawer-icon.png';
 
 const HomeScreen = () => {
   const router = useRouter();
@@ -26,13 +24,16 @@ const HomeScreen = () => {
     </Pressable>
   );
 
+  const numColumns = Platform.OS === 'web' ? 2 : 2;
+
   return (
     <View style={styles.container}>
       <FlatList
         data={books}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        numColumns={2}
+        numColumns={numColumns}
+        key={numColumns}
       />
     </View>
   );
